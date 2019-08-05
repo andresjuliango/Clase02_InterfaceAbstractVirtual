@@ -10,18 +10,39 @@ namespace CA_Interface
     {
         static void Main(string[] args)
         {
-            Entrenador queiroz = new Entrenador();
-            queiroz.Nombre = "Carlos";
-            queiroz.Apellidos = "Queiroz";
+            Entrenador entrenador = new Entrenador();
+            entrenador.Nombre = "Carlos";
+            entrenador.Apellidos = "Queiroz";
+            entrenador.Nacionalidad = "Portugal";
+            entrenador.Edad = 50;
+            entrenador.FechaNacimiento = DateTime.Parse("21/01/1986");
 
             Futbolista jugador = new Futbolista()
             {
                 Nombre = "Radamel",
-                Apellidos = "Falcao"
+                Apellidos = "Falcao",
+                FechaNacimiento = DateTime.Parse("21/01/1986"),
+                NumeroDorsal = 9,
             };
 
-            // TODO: Tarea, Imprimir la información y llenar los demás campos
+            //Imprimir(entrenador);
+            Console.WriteLine("***************");
+            Imprimir(jugador);
+            Console.WriteLine("***************");
+            Console.ReadLine();
 
+
+
+        }
+
+        static void Imprimir(SeleccionFutbol seleccionFutbol)
+        {
+            Console.WriteLine($"{seleccionFutbol.Nombre}{seleccionFutbol.Apellidos}");
+
+            Futbolista futbolista = seleccionFutbol as Futbolista;
+            Console.WriteLine(futbolista.NumeroDorsal);
+
+            seleccionFutbol.JugarPartido();
         }
     }
 }
